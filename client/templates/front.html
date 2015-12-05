@@ -1,0 +1,8 @@
+<template name="front">
+  <h2> Articles: </h2>
+  {{#each articles}}
+    <div>
+      <a href="{{username}}/{{url}}"> {{title}} </a>
+    </div>
+  {{/each}}
+</template>

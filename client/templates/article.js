@@ -6,7 +6,4 @@
 
 
 Template.article.helpers({
-	article: function() {
-		return Articles.findOne();
-	}
 });

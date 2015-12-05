@@ -4,10 +4,21 @@
 
 <template name="layout">
 	<body>
-		<input id="search" type="text" placeholder="search"/>
-
+    <div>
+      {{> loginButtons}}
+    </div>
+    <div>
+      <a href="/"> front </a>
+    </div>
+    {{#if currentUser}}
+      <div>
+        <a href="new"> New Article </a>
+      </div>
+    {{/if}}
+    <div>
+		    <input id="search" type="text" placeholder="search"/>
+    </div>
 		<div></div>
 	  {{> yield}}
 	</body>
 </template>
-

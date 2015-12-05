@@ -21,3 +21,7 @@ random
 ejson
 spacebars
 check
+accounts-ui
+accounts-password
+altapp:urlify2-minifiable
+accounts-base
