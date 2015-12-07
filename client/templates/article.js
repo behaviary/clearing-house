@@ -11,7 +11,7 @@ Session.setDefault(CAN_EDIT, false);
 
 // for some reason onRendered needs an explicit anon func
 Template.article.onRendered(function () {
-	var data = this.data;
+	var data = Template.currentData();
 
 	if (!Meteor.user())
 		return;
@@ -40,6 +40,8 @@ Template.article.events({
 	'click #submit': (e) => {
 
 		var originalArticle = Template.currentData();
+		var _revision = originalArticle.revision + 1;
+		var _root_id = originalArticle.root_id;
 		var _title = originalArticle.title;
 		var _body = originalArticle.body;
 		var _author = originalArticle.username;
@@ -57,14 +59,14 @@ Template.article.events({
 		// Just a note for future of other authors editing content
 		// if (Meteor.user !== _author)
 		// _author = Meteor.user;
-		var _url = URLify2(_title);
-		var article = originalArticle;
+		var _url = URLify2(_title + _revision);
 
 		var article = {
-			revision: originalArticle.revision + 1,
+			root_id: _root_id,
+			revision: _revision,
 			title: _title,
 			body: _body,
-			url: URLify2(_title),
+			url: _url,
 			username: _author
 		};
 
