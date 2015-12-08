@@ -6,27 +6,10 @@
 var EDITING_KEY = "editingArticle";
 Session.setDefault(EDITING_KEY, false);
 
-var CAN_EDIT = "currentUserIsAuthor";
-Session.setDefault(CAN_EDIT, false);
-
-// for some reason onRendered needs an explicit anon func
-Template.article.onRendered(function () {
-	var data = Template.currentData();
-
-	if (!Meteor.user())
-		return;
-
-	var _canEdit = (Meteor.user().username === data.username);
-
-	Session.set(CAN_EDIT, _canEdit);
-});
-
 Template.article.helpers({
-	canEdit: () => {
-		return Session.get(CAN_EDIT);
-	},
 	editing: () => {
-		return (Session.get(EDITING_KEY));
+		if (Meteor.user().username === Template.currentData().username) 
+			return (Session.get(EDITING_KEY));
 	}
 });
 
