@@ -7,12 +7,12 @@ Template.new.events({
     var body = document.getElementById("body").value;
 
     var article = {
-      title:title,
+      title: title,
       username: Meteor.user().username,
-      body:body,
+      body: body
     }
 
-    Meteor.call('newArticle', article)
+    Meteor.call('newArticle', article);
 
     Router.go('/');
   }
