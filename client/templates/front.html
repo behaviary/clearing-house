@@ -2,7 +2,8 @@
   <h2> Articles: </h2>
   {{#each articles}}
     <div>
-      <a href="{{username}}/{{url}}"> {{title}} </a>
+      <a href="{{username}}/{{url}}"> {{title}} </a> <strong>({{root_id}})</strong>
+      <div><h5>{{updatedAt}}</h5></div>
     </div>
   {{/each}}
 </template>
