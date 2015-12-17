@@ -28,6 +28,7 @@ Template.article.events({
 		var _title = originalArticle.title;
 		var _body = originalArticle.body;
 		var _author = originalArticle.username;
+		var _createdAt = originalArticle.createdAt;
 		var titleEl = document.getElementById('js-editTitle');
 		var bodyEl = document.getElementById('js-editBody');
 
@@ -50,6 +51,7 @@ Template.article.events({
 			title: _title,
 			body: _body,
 			url: _url,
+			createdAt: _createdAt,
 			username: _author
 		};
 
